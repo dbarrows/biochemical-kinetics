@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="Schlogl" name="Cyclical Reaction System">
+    <listOfUnitDefinitions>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit kind="item" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="Cell" size="1e-15"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A1" compartment="Cell" initialAmount="100" hasOnlySubstanceUnits="true"/>
+      <species id="A2" compartment="Cell" initialAmount="80" hasOnlySubstanceUnits="true"/>
+      <species id="A3" compartment="Cell" initialAmount="100" hasOnlySubstanceUnits="true"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="R1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="A2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k1 </ci>
+              <ci> A1 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k1" value="0.1"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R2" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="A3"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2 </ci>
+              <ci> A2 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k2" value="0.1"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R3" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A3"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="A1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k3 </ci>
+              <ci> A3 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k3" value="0.1"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

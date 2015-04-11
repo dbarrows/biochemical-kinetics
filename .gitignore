@@ -1,0 +1,31 @@
+# Shell scripts #
+#################
+*.sh
+
+# Temporary function or testing files #
+#######################################
+calculatePropensities.m
+calculateSpecifiedTotals.m
+
+# Matlab stuff #
+#######################
+*.fig
+*.mat
+
+# SBML or XML files #
+#####################
+/*.xml
+/*.sbml
+
+# Results directory #
+################
+figs/
+
+# Backups #
+##########
+backups/
+
+# Experimental GUI stuff #
+#####################
+GUI.*
+StoichiometricMatricesHolder_old.m
