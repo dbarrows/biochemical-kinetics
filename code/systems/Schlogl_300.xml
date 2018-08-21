@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="Schlogl" name="Schlogl Model Stochastic">
+    <listOfUnitDefinitions>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit kind="item" multiplier="1" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="Cell" size="1e-15"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A" compartment="Cell" initialAmount="100000" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="true"/>
+      <species id="B" compartment="Cell" initialAmount="200000" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="true"/>
+      <species id="X" compartment="Cell" initialAmount="300" hasOnlySubstanceUnits="true"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="R1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A"/>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k1 </ci>
+              <ci> A </ci>
+              <ci> X </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k1" value="0.0000003"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R2" reversible="false">
+        <listOfReactants>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="A"/>
+          <speciesReference species="X"/>
+          <speciesReference species="X"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2 </ci>
+              <ci> X </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k2" value="0.0001"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R3" reversible="false">
+        <listOfReactants>
+          <speciesReference species="B"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="X"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k3 </ci>
+              <ci> B </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k3" value="0.001"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R4" reversible="false">
+        <listOfReactants>
+          <speciesReference species="X"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="B"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k4 </ci>
+              <ci> X </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k4" value="3.5"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
