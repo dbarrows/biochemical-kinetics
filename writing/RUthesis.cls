@@ -93,7 +93,8 @@
 	\fancyhead[LE]{\slshape \leftmark}
 }
 \else{
-	\fancyhead[R,L]{\slshape \leftmark}
+	\fancyhead[R]{\slshape \leftmark}
+    \fancyhead[L]{\slshape B.SC. THESIS - DEXTER BARROWS}
 }\fi
 \fancyfoot{} % Clear all footer fields
 \fancyfoot[C]{\thepage}
